@@ -1,0 +1,16 @@
+✅ /todos  ---- GET all todos         
+✅ /todos/:id ---- GET single todo
+✅ /createTodo ---- POST create todo
+✅ /todos/:id ---- PUT update
+✅ /deleteTodo/:id ---- Delete
+✅ Add Users table
+✅ Add User signup
+✅ Add Password encripting
+✅ Add User signin
+✅ Add JWT
+Finish JWT logic
+Add Token Verification
+Add Route Protection
+Keep user id who created that task
+Add Auth Middleware
+Use Middleware
