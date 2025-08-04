@@ -10,7 +10,7 @@ import (
 var DB *sql.DB
 
 func InitDB() {
-	dsn := "root:Paruyr-2004-03-24@tcp(127.0.0.1:3306)/todo?charset=utf8mb4&parseTime=True&loc=Local"
+	dsn := "root:Paruyr-2004-03-24@tcp(127.0.0.1:3306)/mm?charset=utf8mb4&parseTime=True&loc=Local"
 
 	var err error
 	DB, err = sql.Open("mysql", dsn)
@@ -58,6 +58,21 @@ func createTable() {
 	_, err = DB.Exec(createTodoTable)
 	if err != nil {
 		panic("Could not create todos table." + err.Error())
+	}
+
+	createRegistrationsTable := `
+	CREATE TABLE IF NOT EXISTS registrations(
+	id INTEGER PRIMARY KEY AUTO_INCREMENT,
+	todo_id INTEGER,
+	user_id INTEGER,
+	FOREIGN KEY(todo_id) REFERENCES todos(id),
+	FOREIGN KEY(user_id) REFERENCES users(id)
+	);
+	`
+
+	_, err = DB.Exec(createRegistrationsTable)
+	if err != nil {
+		panic("Could not create registrations table." + err.Error())
 	}
 
 }

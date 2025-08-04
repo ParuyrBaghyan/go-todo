@@ -41,7 +41,8 @@ func createTodo(context *gin.Context) {
 		return
 	}
 
-	todo.UserId = 3
+	userId:= context.GetInt64("userId")
+	todo.UserId = userId
 
 	err = todo.CreateTodo()
 	if err != nil {

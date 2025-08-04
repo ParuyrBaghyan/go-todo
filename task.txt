@@ -8,9 +8,13 @@
 ✅ Add Password encripting
 ✅ Add User signin
 ✅ Add JWT
-Finish JWT logic
-Add Token Verification
-Add Route Protection
-Keep user id who created that task
-Add Auth Middleware
-Use Middleware
+✅ Finish JWT logic
+✅ Add Token Verification
+✅ Add Route Protection
+✅ Add Auth Middleware
+✅ Use Middleware
+✅ Add a Registrations Table
+✅ Keep user id who created that task
+✅ Registering Users
+✅ Add Authorization To Restrict Users From
+✅ Canceling registrations

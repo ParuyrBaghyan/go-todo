@@ -4,13 +4,12 @@ import (
 	"errors"
 	"go-todo/db"
 	"go-todo/utils"
-
 )
 
 type User struct {
-	Id int64
-	Email    string
-	Password string
+	Id       int64
+	Email    string `binding:"required"`
+	Password string `binding:"required"`
 }
 
 func (u User) SaveUser() error {
@@ -37,9 +36,9 @@ func (u User) SaveUser() error {
 
 }
 
-func (u User) ValidateUserCredentials() error {
+func (u *User) ValidateUserCredentials() error {
 	query := "SELECT id ,password FROM users WHERE email =?"
-	row := db.DB.QueryRow(query,u.Email)
+	row := db.DB.QueryRow(query, u.Email)
 
 	var retrivedPassword string
 	err := row.Scan(&u.Id, &retrivedPassword)
@@ -52,5 +51,5 @@ func (u User) ValidateUserCredentials() error {
 		return errors.New("Credentials invallid")
 	}
 
-	return  nil
+	return nil
 }
